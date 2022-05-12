@@ -34,13 +34,12 @@
 */
 
 const calculator = (number1, number2) => {
-
-return { 
+let foobar = { 
 sum: number1 + number2,
 mult: number1 * number2,
 div: Math.floor(number1 / number2),
-sub: number1 - number2};
-
+sub: number1 - number2 };
+return foobar;
 };
 
 const arrayGenerator = (type, object) => {
@@ -50,7 +49,6 @@ switch (type) {
   case 'entries': return Object.entries(object);
   default: return 'wut';
 }
-
 };
 
 module.exports = { calculator, arrayGenerator };
