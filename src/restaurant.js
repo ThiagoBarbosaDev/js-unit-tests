@@ -105,8 +105,9 @@
 // };
 // };
 function orderHandler(request) {
-  if (!this.consumption.includes(request))
-  this.consumption.push(request);
+  if (!this.consumption.includes(request)) {
+    this.consumption.push(request); 
+  }
 }
 
 const createMenu = (objetoMenu) => (
