@@ -48,15 +48,17 @@ const createMenu = require('../src/restaurant');
 
     meuRestaurante.pay() // Retorno: 4.29
 
-  IMPORTANTE: FAÇA OS TESTES E PASSOS DE ACORDO COM A SEQUÊNCIA INDICADA NO README DO PROJETO!
-
-*/
-
+    IMPORTANTE: FAÇA OS TESTES E PASSOS DE ACORDO COM A SEQUÊNCIA INDICADA NO README DO PROJETO!
+    
+    */
+   
 const mockMenu = {
   food: { coxinha: 3.90, sanduiche: 9.90 },
   drinks: { agua: 3.90, cerveja: 6.90 },
 }
 
+const mockFunction = createMenu(mockMenu) 
+    
 describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   it('Verifica se a função `createMenu` tem o comportamento esperado', () => {
     // fail('Teste vazio!');
@@ -99,7 +101,6 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // TESTE 5: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado,
     // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
     // ao array retornado em `objetoRetornado.consumption`.
-    const mockFunction = createMenu(mockMenu) 
     mockFunction.order('coxinha')
     expect(mockFunction.consumption[0]).toBe('coxinha')
     // ```
@@ -112,30 +113,30 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
 
     // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
+    mockFunction.order('sanduiche')
+    mockFunction.order('agua')
+    mockFunction.order('cerveja')
+    expect(mockFunction.consumption).toEqual(['coxinha', 'sanduiche', 'agua', 'cerveja'])
     // ```
     // objetoRetornado.order("coxinha");
     // objetoRetornado.order("agua");
-    mockFunction.order('sanduiche')
     // objetoRetornado.order("sopa");
-    mockFunction.order('agua')
     // objetoRetornado.order("sashimi");
-    mockFunction.order('cerveja')
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-    expect(mockFunction.consumption).toEqual(['coxinha', 'sanduiche', 'agua', 'cerveja'])
     // ```
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
 
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a `consumption`.
+    mockFunction.order('coxinha')
+    expect(mockFunction.consumption).toEqual(['coxinha', 'sanduiche', 'agua', 'cerveja'])
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
-    mockFunction.order('coxinha')
-     expect(mockFunction.consumption).toEqual(['coxinha', 'sanduiche', 'agua', 'cerveja'])
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
 
