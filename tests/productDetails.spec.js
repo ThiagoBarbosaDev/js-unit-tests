@@ -39,8 +39,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se o array retornado pela função contém dois itens dentro.
     expect(productDetails('foo', 'bar').length).toBe(2)
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    expect((productDetails('foo', 'bar')[0].details.productId) === productDetails('foo', 'bar')[1].details.productId).toBe(false)
-
+    expect((productDetails('foo', 'bar')[0].details.productId) === productDetails('foo', 'bar')[1].details.productId).toBe(false)  
   });
   it('Verifica os tipos dos objetos dentro dos arrays', () => {
     // Teste se os dois itens dentro do array retornado pela função são objetos.

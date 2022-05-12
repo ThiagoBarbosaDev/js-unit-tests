@@ -98,24 +98,24 @@
 // }
 
 // const orderHandler = (order) => consumption.push(order);
-const fetchHandler = () => { 
-return {
-food: { coxinha: 3.90, sanduiche: 9.90 },
-drinks: { agua: 3.90, cerveja: 6.90 },
-};
-};
+// const fetchHandler = () => { 
+// return {
+// food: { coxinha: 3.90, sanduiche: 9.90 },
+// drink: { agua: 3.90, cerveja: 6.90 },
+// };
+// };
 
-const createMenu = (objetoMenu) => {
-  return {
-    fetchMenu: () => objetoMenu,
-  };
-};
+// const createMenu = (objetoMenu) => {
+//   return {
+//     fetchMenu: fetchHandler(),
+//   };
+// };
 
-const meuRestaurante = createMenu({
-  food: { coxinha: 3.90, sanduiche: 9.90 },
-  drinks: { agua: 3.90, cerveja: 6.90 },
-});
+// const meuRestaurante = createMenu({
+//   food: { coxinha: 3.90, sanduiche: 9.90 },
+//   drink: { agua: 3.90, cerveja: 6.90 },
+// });
 
-console.log(meuRestaurante);
+// console.log(meuRestaurante.fetchMenu.food.coxinha);
 
-module.exports = createMenu;
+// module.exports = createMenu;
