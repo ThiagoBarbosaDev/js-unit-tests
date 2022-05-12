@@ -93,17 +93,6 @@
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-// const paymentHandler = () => {
-//   forEach
-// }
-
-// const orderHandler = (order) => consumption.push(order);
-// const fetchHandler = () => {
-// return {
-// food: { coxinha: 3.90, sanduiche: 9.90 },
-// drink: { agua: 3.90, cerveja: 6.90 },
-// };
-// };
 function orderHandler(request) {
   if (!this.consumption.includes(request)) {
     this.consumption.push(request);
