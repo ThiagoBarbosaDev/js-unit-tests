@@ -140,6 +140,7 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
     // --------------------------------------------------------------------------------------
 
     // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
+    expect(mockFunction.pay()).toBe('27.06')
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');

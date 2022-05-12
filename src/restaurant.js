@@ -98,7 +98,7 @@
 // }
 
 // const orderHandler = (order) => consumption.push(order);
-// const fetchHandler = () => { 
+// const fetchHandler = () => {
 // return {
 // food: { coxinha: 3.90, sanduiche: 9.90 },
 // drink: { agua: 3.90, cerveja: 6.90 },
@@ -106,26 +106,42 @@
 // };
 function orderHandler(request) {
   if (!this.consumption.includes(request)) {
-    this.consumption.push(request); 
+    this.consumption.push(request);
   }
 }
 
-const createMenu = (objetoMenu) => (
-  {
+function paymentHandler() {
+  let foodsObject = this.fetchMenu().food;
+  let drinksObject = this.fetchMenu().drinks;
+  let sum = 0;
+  this.consumption.forEach((entry) => {
+    if (typeof foodsObject[entry] === 'number') {
+      sum += foodsObject[entry];
+    } else if (typeof drinksObject[entry] === 'number') {
+      sum += drinksObject[entry];
+    }
+  });
+  return parseFloat(sum + (0.1 * sum)).toPrecision(4);
+}
+
+const createMenu = (objetoMenu) => ({
   fetchMenu: () => objetoMenu,
   consumption: [],
   order: orderHandler,
-  }
-  );
-  
-  const meuRestaurante = createMenu({
-    food: { coxinha: 3.90, sanduiche: 9.90 },
-    drinks: { agua: 3.90, cerveja: 6.90 },
-  });
-  
-  // console.log(meuRestaurante.fetchMenu);
-  // console.log(Object.keys(meuRestaurante.fetchMenu())[0])
-meuRestaurante.order('burger');
+  pay: paymentHandler,
+});
+
+const meuRestaurante = createMenu({
+  food: { coxinha: 3.9, sanduiche: 9.9 },
+  drinks: { agua: 3.9, cerveja: 6.9 },
+});
+
+meuRestaurante.order('coxinha');
+meuRestaurante.order('coxinha');
+meuRestaurante.order('agua');
+meuRestaurante.order('cerveja');
+
 console.log(meuRestaurante.consumption);
+console.log(meuRestaurante.pay());
 
 module.exports = createMenu;
