@@ -104,18 +104,27 @@
 // drink: { agua: 3.90, cerveja: 6.90 },
 // };
 // };
+function orderHandler(request) {
+  if (!this.consumption.includes(request))
+  this.consumption.push(request);
+}
 
-// const createMenu = (objetoMenu) => {
-//   return {
-//     fetchMenu: fetchHandler(),
-//   };
-// };
+const createMenu = (objetoMenu) => (
+  {
+  fetchMenu: () => objetoMenu,
+  consumption: [],
+  order: orderHandler,
+  }
+  );
+  
+  const meuRestaurante = createMenu({
+    food: { coxinha: 3.90, sanduiche: 9.90 },
+    drinks: { agua: 3.90, cerveja: 6.90 },
+  });
+  
+  // console.log(meuRestaurante.fetchMenu);
+  // console.log(Object.keys(meuRestaurante.fetchMenu())[0])
+meuRestaurante.order('burger');
+console.log(meuRestaurante.consumption);
 
-// const meuRestaurante = createMenu({
-//   food: { coxinha: 3.90, sanduiche: 9.90 },
-//   drink: { agua: 3.90, cerveja: 6.90 },
-// });
-
-// console.log(meuRestaurante.fetchMenu.food.coxinha);
-
-// module.exports = createMenu;
+module.exports = createMenu;
